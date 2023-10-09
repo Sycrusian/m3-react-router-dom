@@ -1,7 +1,7 @@
-export const Home = () => {
+export const Home = ({ user }) => {
   return (
     <>
-      <h1>HomePage</h1>
+      <h1>{user ? `Bem vindo, ${user.name}!` : "HomePage"}</h1>
     </>
   );
 }
