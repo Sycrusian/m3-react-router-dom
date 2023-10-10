@@ -6,6 +6,7 @@ import { TextArea } from "../widgets/TextArea";
 import { contactFormSchema } from "./contactForm.schema";
 import { useState } from "react";
 import { Button } from "../widgets/Button";
+import { fakeContact } from "../../services/api";
 
 export const ContactForm = () => {
   const [ sentMessage, setSentMessage ] = useState(null);
@@ -14,8 +15,13 @@ export const ContactForm = () => {
     resolver: zodResolver(contactFormSchema)
   });
 
-  const submit = payload => {
-    setSentMessage(payload);
+  const submit = async payload => {
+    try {
+      const { data } = await fakeContact.post("/emails", payload);
+      setSentMessage(data);
+    } catch (error) {
+      console.error(error.message);
+    }
   }
 
   return (
@@ -23,7 +29,7 @@ export const ContactForm = () => {
       <form onSubmit={handleSubmit(submit)} noValidate>
         <Input id="contact-name" label="Nome" type="text" error={errors.name} required {...register("name")}/>
         <Input id="contact-email" label="E-Mail" type="email" error={errors.email} required {...register("email")}/>
-        <Select id="contact-sector" label="Setor" error={errors.sector} required {...register("sector")}>
+        <Select id="contact-sector" label="Setor" error={errors.departament} required {...register("departament")}>
           <option value="administration">Administração</option>
           <option value="diplomacy">Diplomacia</option>
           <option value="maintenance">Manutenção</option>
@@ -35,6 +41,7 @@ export const ContactForm = () => {
       {sentMessage && 
         <div>
           <h2>{sentMessage.name}</h2>
+          <h3>ID: {sentMessage.id}</h3>
           <h3>E-mail: {sentMessage.email}</h3>
           <h3>Setor: {sentMessage.sector}</h3>
           <p>{sentMessage.message}</p>
