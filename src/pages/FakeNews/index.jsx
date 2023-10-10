@@ -1,0 +1,7 @@
+export const FakeNews = () => {
+  return (
+    <>
+      <h1>404 - Página não encontrada!</h1>
+    </>
+  );
+}
