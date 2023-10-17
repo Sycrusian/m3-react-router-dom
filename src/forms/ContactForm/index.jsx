@@ -1,11 +1,11 @@
 import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod"
-import { Input } from "../widgets/Input";
-import { Select } from "../widgets/Select";
-import { TextArea } from "../widgets/TextArea";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Input } from "../../components/widgets/Input";
+import { Select } from "../../components/widgets/Select";
+import { TextArea } from "../../components/widgets/TextArea";
 import { contactFormSchema } from "./contactForm.schema";
 import { useState } from "react";
-import { Button } from "../widgets/Button";
+import { Button } from "../../components/widgets/Button";
 import { fakeContact } from "../../services/api";
 
 export const ContactForm = () => {

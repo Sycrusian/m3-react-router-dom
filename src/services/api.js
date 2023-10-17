@@ -9,3 +9,8 @@ export const fakeContact = axios.create ({
   baseURL: "https://contact-fake-api.onrender.com",
   timeout: 8000
 });
+
+export const fakeFashion = axios.create ({
+  baseURL: "https://fashion-store-api.onrender.com",
+  timeout: 8000
+});

@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { Input } from "../widgets/Input"
-import { Button } from "../widgets/Button";
+import { Input } from "../../components/widgets/Input";
+import { Button } from "../../components/widgets/Button";
 
 export const RegisterForm = ({ setUser }) => {
   const { register, handleSubmit } = useForm();
