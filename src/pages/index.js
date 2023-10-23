@@ -6,5 +6,6 @@ import { Testimonies } from "./Testimonies";
 import { News } from "./News";
 import { NewsPiece } from "./NewsPiece";
 import { FakeNews } from "./FakeNews";
+import { ToDo } from "./ToDo";
 
-export { Home, Register, Contact, Projects, Testimonies, News, NewsPiece, FakeNews };
+export { Home, Register, Contact, Projects, Testimonies, News, NewsPiece, FakeNews, ToDo };
